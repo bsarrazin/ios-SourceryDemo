@@ -1,43 +1,25 @@
 import Foundation
+import UIKit
 
-struct Person {
+struct Person: AutoEquatable {
     let firstName: String
     let lastName: String
     let age: Int
     let pets: [Pet]
 }
 
-extension Person: Equatable {
-    
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return
-            lhs.firstName == rhs.firstName &&
-            lhs.lastName == rhs.lastName &&
-            lhs.age == rhs.age &&
-            lhs.pets == rhs.pets
-    }
-    
-}
-
-struct Pet {
-    enum Kind {
-        case cat
-        case dog
-        case fish
-    }
-    
+struct Pet: AutoEquatable {
+    enum Kind { case cat, dog, fish }
     let kind: Kind
     let name: String
     let age: Int
 }
 
-extension Pet: Equatable {
-    
-    static func == (lhs: Pet, rhs: Pet) -> Bool {
-        return
-            lhs.kind == rhs.kind &&
-            lhs.name == rhs.name &&
-            lhs.age == rhs.age
-    }
-    
+struct Vehicle: AutoEquatable {
+    enum Kind { case car, truck, van }
+    let kind: Kind
+    let colors: [UIColor]
+    // sourcery: skipAutoEquatable
+    let name: String?
+    let serialNumber: String
 }

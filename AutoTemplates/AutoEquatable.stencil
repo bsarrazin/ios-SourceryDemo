@@ -1,0 +1,14 @@
+{% for type in types.implementing.AutoEquatable %}
+extension {{type.name}}: Equatable {
+    static func == (lhs: {{type.name}}, rhs: {{type.name}}) -> Bool {
+        {% for variable in type.storedVariables %}
+        
+        {% if variable.annotations.skipAutoEquatable == false %}
+        guard lhs.{{variable.name}} == rhs.{{variable.name}} else { return false }
+        {% endif %}
+        
+        {% endfor %}
+        return true
+    }
+}
+{% endfor %}

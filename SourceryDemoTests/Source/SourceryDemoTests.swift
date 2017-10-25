@@ -24,4 +24,18 @@ class SourceryDemoTests: XCTestCase {
         XCTAssertTrue(sut == person)
     }
     
+    func test_VehicleEquality() {
+        let vehicle = Vehicle(kind: .car, name: "Lola", colors: [.black, .blue])
+        let sut = Vehicle(kind: .car, name: "Lola", colors: [.black, .blue])
+        XCTAssertTrue(sut == vehicle)
+        
+        let vehicle1 = Vehicle(kind: .car, name: "Lola", colors: [.black, .blue])
+        let sut1 = Vehicle(kind: .car, name: nil, colors: [.black, .blue])
+        XCTAssertFalse(sut1 == vehicle1)
+        
+        let vehicle2 = Vehicle(kind: .car, name: nil, colors: [.black, .blue])
+        let sut2 = Vehicle(kind: .car, name: nil, colors: [.black, .blue])
+        XCTAssertTrue(sut2 == vehicle2)
+    }
+    
 }
