@@ -23,7 +23,6 @@ extension Vehicle: Equatable {
     static func == (lhs: Vehicle, rhs: Vehicle) -> Bool {
         guard lhs.kind == rhs.kind else { return false }
         guard lhs.colors == rhs.colors else { return false }
-        guard lhs.name == rhs.name else { return false }
         guard lhs.serialNumber == rhs.serialNumber else { return false }
         return true
     }

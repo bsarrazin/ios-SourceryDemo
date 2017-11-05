@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AEA6741E1500CB2312B28AC8 /* Pods_SourceryDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14BFC3449A3D70EE5104920 /* Pods_SourceryDemo.framework */; };
+		B511442A1FAF6C6900B034E3 /* AutoEncodable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51144291FAF6C6900B034E3 /* AutoEncodable.generated.swift */; };
 		B567B4FB1FA13A3A009EA41F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B567B4F51FA13A25009EA41F /* LaunchScreen.storyboard */; };
 		B567B4FC1FA13A3A009EA41F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B567B4F71FA13A25009EA41F /* Main.storyboard */; };
 		B567B4FF1FA13F88009EA41F /* AutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B567B4FE1FA13F88009EA41F /* AutoEquatable.generated.swift */; };
@@ -34,6 +35,7 @@
 		21D8537DDF1BA129FB51AC99 /* Pods-SourceryDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SourceryDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SourceryDemoTests/Pods-SourceryDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		9AB6893FD22885E25959AFB1 /* Pods-SourceryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SourceryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SourceryDemo/Pods-SourceryDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A3BA25BA505F0B25CA60CF9D /* Pods-SourceryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SourceryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SourceryDemo/Pods-SourceryDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B51144291FAF6C6900B034E3 /* AutoEncodable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEncodable.generated.swift; sourceTree = "<group>"; };
 		B567B4F61FA13A25009EA41F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B567B4F81FA13A25009EA41F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B567B4FE1FA13F88009EA41F /* AutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoEquatable.generated.swift; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 				BC13A7D0D10BAE7694F7D527 /* Pods_SourceryDemoTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B51144281FAF6B9800B034E3 /* AutoEncodable */ = {
+			isa = PBXGroup;
+			children = (
+				B51144291FAF6C6900B034E3 /* AutoEncodable.generated.swift */,
+			);
+			path = AutoEncodable;
 			sourceTree = "<group>";
 		};
 		B567B4F41FA139F7009EA41F /* Resources */ = {
@@ -158,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				B57FDDFB1FA136D7003C4875 /* AppDelegate.swift */,
+				B51144281FAF6B9800B034E3 /* AutoEncodable */,
 				B567B4FD1FA13E1E009EA41F /* AutoEquatable */,
 				B57FDE221FA138B1003C4875 /* Models */,
 				B57FDE1D1FA137A0003C4875 /* View Controllers */,
@@ -400,7 +411,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/Pods/Sourcery/bin/sourcery \\\n--sources ${TARGET_NAME}/Source/Models \\\n--templates ${SRCROOT}/AutoTemplates/AutoEquatable.stencil \\\n--output ${TARGET_NAME}/Source/AutoEquatable\n";
+			shellScript = "${SRCROOT}/Pods/Sourcery/bin/sourcery \\\n--sources ${TARGET_NAME}/Source/Models \\\n--templates ${SRCROOT}/AutoTemplates/AutoEquatable.stencil \\\n--output ${TARGET_NAME}/Source/AutoEquatable\n\n${SRCROOT}/Pods/Sourcery/bin/sourcery \\\n--sources ${TARGET_NAME}/Source/Models \\\n--templates ${SRCROOT}/AutoTemplates/AutoEncodable.stencil \\\n--output ${TARGET_NAME}/Source/AutoEncodable\n";
 		};
 		BA3FD35B2E06094D2A624927 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -427,6 +438,7 @@
 				B567B5011FA14048009EA41F /* MarkupProtocols.swift in Sources */,
 				B57FDE241FA138E1003C4875 /* Models.swift in Sources */,
 				B57FDDFE1FA136D7003C4875 /* ViewController.swift in Sources */,
+				B511442A1FAF6C6900B034E3 /* AutoEncodable.generated.swift in Sources */,
 				B567B4FF1FA13F88009EA41F /* AutoEquatable.generated.swift in Sources */,
 				B57FDDFC1FA136D7003C4875 /* AppDelegate.swift in Sources */,
 			);

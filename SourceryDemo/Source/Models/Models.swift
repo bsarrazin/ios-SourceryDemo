@@ -1,22 +1,34 @@
 import Foundation
 import UIKit
 
-struct Person: AutoEquatable {
+struct Person: AutoEncodable, AutoEquatable {
+    // sourcery: AutoEncodableKey = "first_name"
     let firstName: String
+    // sourcery: AutoEncodableKey = "last_name"
     let lastName: String
     let age: Int
     let pets: [Pet]
 }
 
-struct Pet: AutoEquatable {
-    enum Kind { case cat, dog, fish }
+struct Pet: AutoEncodable, AutoEquatable {
+    enum Kind: String, Codable {
+         case cat
+         case dog
+         case fish
+    }
+    // sourcery: AutoEncodableKey = "type"
     let kind: Kind
     let name: String
     let age: Int
 }
 
-struct Vehicle: AutoEquatable {
-    enum Kind { case car, truck, van }
+struct Vehicle: AutoEncodable, AutoEquatable {
+    enum Kind: String, Codable {
+        case car
+        case truck
+        case van
+    }
+    // sourcery: AutoEncodableKey = "type"
     let kind: Kind
     let colors: [UIColor]
     // sourcery: skipAutoEquatable
